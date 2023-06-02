@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/scrollreveal": "^0.0.8",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "scrollreveal": "^4.0.9"
   }
 }
