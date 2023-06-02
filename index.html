@@ -12,6 +12,7 @@
     <!-- TypeScript file app.ts -->
     <script type="module" src="./src/scripts/index.ts" defer></script>
   </head>
+
   <body>
     <header>
       <nav class="container">
@@ -27,7 +28,54 @@
       </nav>
     </header>
     <main>
-      <section class="home" style="height: 2000px"></section>
+      <section class="home">
+        <div class="container">
+          <div class="developer-info">
+            <h2 class="sub-heading">Junior Fullstack Developer</h2>
+            <h1 class="heading">Matus Tatarko</h1>
+            <p>I am a junior fullstack developer. Let's work together.</p>
+            <div class="cta-buttons">
+              <a href="mailto:matus.tatarko28@gmail.com" class="button"
+                >Contact Me</a
+              >
+              <div class="button-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="180"
+                  height="70"
+                  x="0"
+                  y="0"
+                >
+                  <path
+                    d="M145,50H20C9,50,0,39.8,0,25v0C0,10.2,9,0,20,0h125c11,0,20,10.2,20,25v0C165,39.8,156,50,145,50z"
+                    class="path"
+                    transform="translate(7,10)"
+                  />
+                </svg>
+                <a
+                  href="./src/assets/CV-Tatarko.pdf"
+                  class="button secondary-button"
+                  download
+                  >Download CV</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="developer-image">
+            <img
+              src="./src/assets/photo-me.png"
+              class="developer"
+              alt="Photo of website dev."
+            />
+            <img
+              src="./src/assets/6-side-polygon.png"
+              class="polygon"
+              alt="Image of polygon."
+            />
+          </div>
+        </div>
+      </section>
+      <section style="height: 1000px"></section>
     </main>
   </body>
 </html>
