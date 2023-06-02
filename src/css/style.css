@@ -42,6 +42,18 @@ a {
   padding: 0 2rem;
 }
 
+.heading {
+  font-size: 4rem;
+  font-family: "Gugi", cursive;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin: 1.5rem 0;
+}
+
 .sub-heading {
   font-size: 1.8rem;
   font-weight: 300;
@@ -220,18 +232,6 @@ section.home .container {
   height: calc(100vh - 100px);
 }
 
-section.home .heading {
-  font-size: 4rem;
-  font-family: "Gugi", cursive;
-  font-weight: 400;
-}
-
-section.home p {
-  font-size: 1.4rem;
-  font-weight: 300;
-  margin: 1.5rem 0;
-}
-
 .developer-image {
   position: relative;
   width: 100%;
@@ -254,4 +254,38 @@ section.home p {
 
 .developer-image .polygon {
   z-index: 4;
+}
+
+/* =================== About me =================== */
+
+.about .container {
+  display: grid;
+  grid-template-columns: 110px 460px 1fr;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.about-image-list {
+  margin: 0 auto;
+}
+
+.about-image-list img {
+  border-radius: 1rem;
+}
+
+.about-image img,
+.about-selected img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.about-image.selected img {
+  box-shadow: 0px 0px 6px 10px rgba(0, 0, 0, 0.75);
+}
+
+.arrow-up svg,
+.arrow-down svg {
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
 }
