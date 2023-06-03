@@ -230,6 +230,7 @@ section.home .container {
   align-items: center;
   max-height: 550px;
   height: calc(100vh - 100px);
+  margin-bottom: 120px;
 }
 
 .developer-image {
@@ -271,6 +272,33 @@ section.home .container {
 
 .about-image-list img {
   border-radius: 1rem;
+}
+
+.about-selected {
+  position: relative;
+}
+
+.about-selected p {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+  background-color: #ffffffb4;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.26s ease;
+}
+
+.about-selected:hover p {
+  height: 100px;
+  transform: scaleY(1);
 }
 
 .about-image img,

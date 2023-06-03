@@ -78,7 +78,7 @@
       <section class="about">
         <div class="container">
           <div class="about-image-list">
-            <div class="arrow-up">
+            <div class="arrow-up gallery-control" tabindex="0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -90,35 +90,39 @@
                 ></path>
               </svg>
             </div>
-            <div class="about-image selected" data-id="0">
+            <div
+              class="about-image gallery-control selected"
+              data-id="0"
+              tabindex="0"
+            >
               <img
                 src="src/assets/AboutMe/00-blackAndWhite.png"
                 class="about-image-element"
                 alt="Photo of me in black and white"
               />
             </div>
-            <div class="about-image" data-id="1">
+            <div class="about-image gallery-control" data-id="1" tabindex="0">
               <img
                 src="src/assets/AboutMe/01-blackAndWhite.png"
                 class="about-image-element"
                 alt="Photo of me in black and white"
               />
             </div>
-            <div class="about-image" data-id="2">
+            <div class="about-image gallery-control" data-id="2" tabindex="0">
               <img
                 src="src/assets/AboutMe/02-blackAndWhite.png"
                 class="about-image-element"
                 alt="Photo of me in black and white"
               />
             </div>
-            <div class="about-image" data-id="3">
+            <div class="about-image gallery-control" data-id="3" tabindex="0">
               <img
                 src="src/assets/AboutMe/03-blackAndWhite.png"
                 class="about-image-element"
                 alt="Photo of me in black and white"
               />
             </div>
-            <div class="arrow-down">
+            <div class="arrow-down gallery-control" tabindex="0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -137,6 +141,7 @@
               class="selected-img"
               alt="Selected image"
             />
+            <p class="about-selected-comment"></p>
           </div>
           <div class="about-text">
             <h2 class="sub-heading">About me</h2>

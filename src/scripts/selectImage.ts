@@ -3,40 +3,83 @@ import oneColorful from "../assets/AboutMe/01-colorful.png";
 import twoColorful from "../assets/AboutMe/02-colorful.png";
 import threeColorful from "../assets/AboutMe/03-colorful.png";
 
+const arrowDown = document.querySelector(".arrow-down") as HTMLDivElement;
 const imgColorfulArr = [zeroColorful, oneColorful, twoColorful, threeColorful];
-const divImages = document.querySelectorAll(
+const divsImage = document.querySelectorAll(
   ".about-image"
 ) as NodeListOf<HTMLDivElement>;
 const selectedImg = document.querySelector(".selected-img") as HTMLImageElement;
+const paragraph = document.querySelector(
+  ".about-selected-comment"
+) as HTMLParagraphElement;
 
-export const selectImage = (direction: string): void => {
-  let newSelectedID: number = -1;
+const comments = [
+  "When I have a time, I like to fly.",
+  "Before I was programming industrial robots.",
+  "Visit new places and hiking is my passion.",
+  "I like to styling my food as well.",
+];
 
-  for (let i: number = 0; i < divImages.length; i++) {
-    if (divImages[i].classList.contains("selected")) {
-      const divId = parseInt(divImages[i].dataset.id ?? "-1");
-
-      if (divId === 0 && direction === "up") {
-        newSelectedID = divImages.length - 1;
-        console.log(divImages[3].dataset.id);
-      } else if (divId === divImages.length - 1 && direction === "down") {
-        newSelectedID = 0;
-      } else if (
-        divId > 0 &&
-        divId <= divImages.length - 1 &&
-        direction === "up"
-      ) {
-        newSelectedID = divId - 1;
-      } else if (divId >= 0 && direction === "down") {
-        newSelectedID = divId + 1;
-      }
-
-      divImages[i].classList.remove("selected");
-      divImages[newSelectedID].classList.add("selected");
-
-      selectedImg.src = imgColorfulArr[newSelectedID];
-
-      return;
+const findSelected = (): HTMLDivElement | null => {
+  for (let i: number = 0; i < divsImage.length; i++) {
+    if (divsImage[i].classList.contains("selected")) {
+      divsImage[i].classList.remove("selected");
+      return divsImage[i];
     }
   }
+
+  return null;
 };
+
+const moveWithArrow = (direction: string): number => {
+  const actualSelected = findSelected();
+  const actualID = parseInt(actualSelected?.dataset.id ?? "-1");
+
+  if (actualID === 0 && direction === "up") {
+    return divsImage.length - 1;
+  } else if (actualID === divsImage.length - 1 && direction === "down") {
+    return 0;
+  } else if (
+    actualID > 0 &&
+    actualID <= divsImage.length - 1 &&
+    direction === "up"
+  ) {
+    return actualID - 1;
+  } else if (actualID >= 0 && direction === "down") {
+    return actualID + 1;
+  } else {
+    return actualID;
+  }
+};
+
+const moveWithClick = (clickedDiv: HTMLDivElement): number => {
+  const actualSelected = findSelected();
+  const actualID = parseInt(actualSelected?.dataset.id ?? "-1");
+  const result = parseInt(clickedDiv.dataset.id ?? "-1");
+
+  return result >= 0 ? result : actualID;
+};
+
+const selectComment = (ImgID: number): void => {
+  paragraph.textContent = comments[ImgID];
+};
+
+export const selectImage = (divImage: HTMLDivElement = arrowDown): void => {
+  let newSelectedID: number = -1;
+  clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
+  localStorage.setItem("interval", `${setInterval(selectImage, 5000)}`);
+
+  if (divImage.classList.contains("arrow-down"))
+    newSelectedID = moveWithArrow("down");
+  else if (divImage.classList.contains("arrow-up"))
+    newSelectedID = moveWithArrow("up");
+  else if (divImage.classList.contains("about-image"))
+    newSelectedID = moveWithClick(divImage);
+
+  divsImage[newSelectedID].classList.add("selected");
+  selectedImg.src = imgColorfulArr[newSelectedID];
+
+  selectComment(newSelectedID);
+};
+
+localStorage.setItem("interval", `${setInterval(selectImage, 5000)}`);
