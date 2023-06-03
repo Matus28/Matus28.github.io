@@ -1,4 +1,10 @@
 import ScrollReveal from "scrollreveal";
+import zeroColorful from "../assets/AboutMe/00-colorful.png";
+import oneColorful from "../assets/AboutMe/01-colorful.png";
+import twoColorful from "../assets/AboutMe/02-colorful.png";
+import threeColorful from "../assets/AboutMe/03-colorful.png";
+
+const imgColorfulArr = [zeroColorful, oneColorful, twoColorful, threeColorful];
 
 const header = document.querySelector("header");
 
@@ -56,7 +62,7 @@ const move = (direction: string): void => {
       divImages[i].classList.remove("selected");
       divImages[newSelectedID].classList.add("selected");
 
-      selectedImg.src = `public/AboutMe/0${newSelectedID}-colorful.png`;
+      selectedImg.src = imgColorfulArr[newSelectedID];
 
       return;
     }
