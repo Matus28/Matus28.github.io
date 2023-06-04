@@ -263,7 +263,7 @@ section.home .container {
   display: grid;
   grid-template-columns: 110px 460px 1fr;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.7rem;
 }
 
 .about-image-list {
@@ -278,15 +278,14 @@ section.home .container {
   position: relative;
 }
 
-.about-selected p {
+.about-selected-comment {
   position: absolute;
   bottom: 0.25rem;
   left: 0;
   width: 100%;
   height: 0;
   margin: 0;
-  font-weight: 400;
-  text-align: center;
+  padding: auto 0;
   background-color: #ffffffb4;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -296,9 +295,15 @@ section.home .container {
   transition: transform 0.26s ease;
 }
 
-.about-selected:hover p {
+.about-selected:hover .about-selected-comment {
   height: 100px;
   transform: scaleY(1);
+}
+
+.about-selected-comment p {
+  position: relative;
+  bottom: 10%;
+  text-align: center;
 }
 
 .about-image img,

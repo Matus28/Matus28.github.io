@@ -10,7 +10,7 @@ const divsImage = document.querySelectorAll(
 ) as NodeListOf<HTMLDivElement>;
 const selectedImg = document.querySelector(".selected-img") as HTMLImageElement;
 const paragraph = document.querySelector(
-  ".about-selected-comment"
+  ".about-selected-comment p"
 ) as HTMLParagraphElement;
 
 const comments = [
