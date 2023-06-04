@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 18px;
@@ -140,6 +144,10 @@ p {
   }
 }
 
+section {
+  padding-top: 120px;
+}
+
 /* =================== Navigation Bar =================== */
 
 header {
@@ -154,6 +162,7 @@ header {
 }
 
 header.scroll {
+  height: 90px;
   background-color: var(--bg-color-transparent);
   backdrop-filter: blur(15px);
   box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.1);
@@ -208,11 +217,13 @@ nav.container {
   transition: 0.3s all ease;
 }
 
-.nav-menu-links:hover {
+.nav-menu-links:hover,
+.nav-menu-links.active {
   opacity: 1;
 }
 
-.nav-menu-links:hover::after {
+.nav-menu-links:hover::after,
+.nav-menu-links.active::after {
   width: 100%;
 }
 /* =================== Section - HOME =================== */
@@ -263,7 +274,8 @@ section.home .container {
   display: grid;
   grid-template-columns: 110px 460px 1fr;
   align-items: center;
-  gap: 1.7rem;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .about-image-list {
@@ -321,4 +333,9 @@ section.home .container {
   cursor: pointer;
   width: 100%;
   margin: 0 auto;
+}
+
+.about-text {
+  width: 100%;
+  max-width: 600px;
 }

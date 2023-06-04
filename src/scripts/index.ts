@@ -1,5 +1,6 @@
 import ScrollReveal from "scrollreveal";
 import { selectImage } from "./selectImage";
+import { setActiveLink } from "./setActiveLink";
 
 const header = document.querySelector("header");
 
@@ -38,4 +39,11 @@ divListImg.forEach((divImg: HTMLDivElement): void => {
 
 window.addEventListener("DOMContentLoaded", (): void => {
   selectImage(divListImg[1]);
+  setActiveLink();
+});
+
+// ================== Set Active nav-menu-links ======================
+
+window.addEventListener("scroll", (): void => {
+  setActiveLink();
 });
