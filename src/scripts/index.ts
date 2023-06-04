@@ -6,7 +6,6 @@ const header = document.querySelector("header");
 const divListImg = document.querySelectorAll(
   ".gallery-control"
 ) as NodeListOf<HTMLDivElement>;
-const selectedImg = document.querySelector(".selected-img") as HTMLImageElement;
 
 // ================== Stick Navigation Bar ======================
 
@@ -30,18 +29,6 @@ sr.reveal(".developer-image", { origin: "top", delay: 500 });
 sr.reveal(".about-selected", { delay: 500 });
 
 // ================== About Gallery select ======================
-
-let isGalleryVisible: boolean = false;
-
-const hasReached = (element: HTMLImageElement): boolean => {
-  const topPos = element.getBoundingClientRect().top;
-
-  if (window.innerHeight >= topPos + element.offsetHeight) {
-    return true;
-  } else {
-    return false;
-  }
-};
 
 divListImg.forEach((divImg: HTMLDivElement): void => {
   divImg.addEventListener("click", (): void => {
