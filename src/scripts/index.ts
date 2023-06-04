@@ -1,3 +1,4 @@
+import "boxicons";
 import ScrollReveal from "scrollreveal";
 import { selectImage } from "./selectImage";
 import { setActiveLink } from "./setActiveLink";
@@ -27,7 +28,7 @@ const sr = ScrollReveal({
 
 sr.reveal(".developer-info", { origin: "bottom", delay: 500 });
 sr.reveal(".developer-image", { origin: "top", delay: 500 });
-sr.reveal(".about-selected", { delay: 500 });
+// sr.reveal(".about-selected", { delay: 500 });
 
 // ================== About Gallery select ======================
 

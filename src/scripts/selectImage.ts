@@ -81,5 +81,3 @@ export const selectImage = (divImage: HTMLDivElement = arrowDown): void => {
 
   selectComment(newSelectedID);
 };
-
-localStorage.setItem("interval", `${setInterval(selectImage, 5000)}`);
