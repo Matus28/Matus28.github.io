@@ -1,0 +1,79 @@
+.icon {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.icon.html {
+  background: url("../assets/icons/html.svg");
+}
+
+.icon.css {
+  background: url("../assets/icons/css.svg");
+}
+
+.icon.javascript {
+  background: url("../assets/icons/javascript.svg");
+}
+
+.icon.typescript {
+  background: url("../assets/icons/typescript.svg");
+}
+
+.icon.react {
+  background: url("../assets/icons/react.svg");
+}
+
+.icon.express-js {
+  background: url("../assets/icons/express-js.svg");
+}
+
+.icon.node-js {
+  background: url("../assets/icons/node-js.svg");
+}
+
+.icon.mysql {
+  background: url("../assets/icons/mysql.svg");
+}
+
+.icon.microsoft-sql-server {
+  background: url("../assets/icons/microsoft-sql-server.svg");
+}
+
+.icon.azure {
+  background: url("../assets/icons/azure.svg");
+}
+
+.icon.git {
+  background: url("../assets/icons/git.svg");
+}
+
+.icon.github {
+  background: url("../assets/icons/github.svg");
+}
+
+.icon.jest {
+  background: url("../assets/icons/jest.svg");
+}
+
+.icon.cypress {
+  background: url("../assets/icons/cypress.svg");
+}
+
+.icon.cli {
+  background: url("../assets/icons/cli.svg");
+}
+
+.icon.docker {
+  background: url("../assets/icons/docker.svg");
+}
+
+.icon.jwt {
+  background: url("../assets/icons/jwt.svg");
+}
+
+.icon.jira {
+  background: url("../assets/icons/jira.svg");
+}
