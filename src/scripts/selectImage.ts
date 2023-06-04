@@ -14,10 +14,10 @@ const paragraph = document.querySelector(
 ) as HTMLParagraphElement;
 
 const comments = [
-  "When I have a time, I like to fly.",
-  "Before I was programming industrial robots.",
-  "Visit new places and hiking is my passion.",
-  "I like to styling my food as well.",
+  "Capturing the essence of my adventurous spirit in one frame",
+  "I started first with industrial robots programming.",
+  "My true passion lies in exploring new places and soaking in breathtaking views.",
+  "Bringing my CSS skills into the kitchen, I love to style my food creations with flair and creativity",
 ];
 
 const findSelected = (): HTMLDivElement | null => {
