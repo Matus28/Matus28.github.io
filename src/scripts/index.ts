@@ -1,4 +1,3 @@
-import "boxicons";
 import ScrollReveal from "scrollreveal";
 import { selectImage } from "./selectImage";
 import { setActiveLink } from "./setActiveLink";
