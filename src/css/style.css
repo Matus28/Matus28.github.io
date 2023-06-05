@@ -275,17 +275,28 @@ section.home .container {
 
 .about .container {
   display: grid;
-  grid-template-columns: 110px 460px 1fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
   gap: 2rem;
 }
 
+.about-gallery {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .about-image-list {
-  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
 }
 
 .about-image-list img {
+  max-width: 150px;
   border-radius: 1rem;
 }
 
@@ -346,14 +357,13 @@ section.home .container {
 .arrow-up svg,
 .arrow-down svg {
   cursor: pointer;
-  width: 100%;
-  margin: 0 auto;
   transition: all 0.5s;
+  transform: rotate(-90deg);
 }
 
 .arrow-up:hover svg,
 .arrow-down:hover svg {
-  transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3) rotate(-90deg);
 }
 
 .about-text {
@@ -453,7 +463,7 @@ section.home .container {
   stroke-width: 8px;
   stroke: var(--main-color-2);
   stroke-linecap: round;
-  stroke-dasharray: 0;
+  stroke-dasharray: 440;
   stroke-dashoffset: 440;
 }
 

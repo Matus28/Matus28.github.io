@@ -1,6 +1,7 @@
 import ScrollReveal from "scrollreveal";
 import { selectImage } from "./selectImage";
 import { setActiveLink } from "./setActiveLink";
+import { projectProgress } from "./projectProgress";
 
 const header = document.querySelector("header");
 
@@ -27,7 +28,6 @@ const sr = ScrollReveal({
 
 sr.reveal(".developer-info", { origin: "bottom", delay: 500 });
 sr.reveal(".developer-image", { origin: "top", delay: 500 });
-// sr.reveal(".about-selected", { delay: 500 });
 
 // ================== About Gallery select ======================
 
@@ -46,4 +46,14 @@ window.addEventListener("DOMContentLoaded", (): void => {
 
 window.addEventListener("scroll", (): void => {
   setActiveLink();
+});
+
+// ================== Project progress ======================
+
+let isRendered: boolean = false;
+
+window.addEventListener("scroll", (): void => {
+  if (!isRendered) {
+    isRendered = projectProgress();
+  }
 });
