@@ -449,6 +449,27 @@ section.home .container {
   height: 180px;
 }
 
+.project-progress img {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.project-progress:hover img {
+  visibility: visible;
+  opacity: 0.8;
+}
+
+.project-progress:hover svg,
+.project-progress:hover .counter {
+  visibility: hidden;
+}
+
 .project-progress svg {
   position: absolute;
   width: 100%;
