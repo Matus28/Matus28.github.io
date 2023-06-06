@@ -2,12 +2,17 @@ import ScrollReveal from "scrollreveal";
 import { selectImage } from "./selectImage";
 import { setActiveLink } from "./setActiveLink";
 import { projectProgress } from "./projectProgress";
+import { sendEmail } from "./sendEmail";
 
 const header = document.querySelector("header");
 
 const divListImg = document.querySelectorAll(
   ".gallery-control"
 ) as NodeListOf<HTMLDivElement>;
+
+const formButton = document.querySelector(
+  ".contact-form button"
+) as HTMLButtonElement;
 
 // ================== Stick Navigation Bar ======================
 
@@ -56,4 +61,11 @@ window.addEventListener("scroll", (): void => {
   if (!isRendered) {
     isRendered = projectProgress();
   }
+});
+
+// ================== Project progress ======================
+
+formButton.addEventListener("click", (event: MouseEvent): void => {
+  event.preventDefault();
+  sendEmail();
 });

@@ -7,6 +7,7 @@
   --main-color-1: hsl(240, 100%, 6%);
   --main-color-2: hsl(346.5, 100%, 50.4%);
   --bg-color-card: hsl(0, 0%, 96%);
+  --text-color: hsla(240, 100%, 6%, 0.473);
 }
 
 /* ================== General =================== */
@@ -81,12 +82,17 @@ p {
   min-width: 130px;
   padding: 0.9rem 1.5rem;
   color: #fff;
+  font-weight: 400;
+  font-size: inherit;
+  font-family: inherit;
   background-color: var(--main-color-1);
+  border: none;
   border-radius: 1.6rem;
   letter-spacing: 0.3px;
   text-align: center;
   text-transform: capitalize;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -412,10 +418,15 @@ section.home .container {
   min-width: 190px;
   min-height: 2rem;
   padding: 0.8rem 1rem;
-  background-color: var(--main-color-1);
   border: 4px solid #fff;
   border-radius: 2rem;
+  background-color: var(--main-color-1);
   color: #fff;
+  transition: 0.5s;
+}
+
+.experience-card li:hover {
+  transform: scale(1.5);
 }
 
 /* =================== Projects =================== */
@@ -513,4 +524,65 @@ section.home .container {
   margin-top: 1rem;
   color: var(--main-color-1);
   font-size: 1.3rem;
+}
+
+/* =================== Contact me =================== */
+
+.contact .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4rem;
+}
+
+.mail {
+  color: var(--main-color-1);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.contact-form {
+  background-color: var(--bg-color-card);
+  border-radius: 2rem;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.contact-form h2 {
+  color: var(--main-color-1);
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.form-input:hover {
+  outline: #dddddd solid 2px;
+}
+
+.form-input:focus,
+.form-input:active {
+  outline: #7e7e7e solid 2px;
+}
+
+.form-input::placeholder {
+  color: var(--text-color);
+}
+
+textarea.form-input {
+  min-height: 200px;
+  resize: none;
 }
