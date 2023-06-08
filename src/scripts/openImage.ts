@@ -1,4 +1,7 @@
 import { restartTimer, selectImage } from "./selectImage";
+import leftArrowPATH from "../assets/icons/arrow-left-gallery.svg";
+import rightArrowPATH from "../assets/icons/arrow-right-gallery.svg";
+import closePATH from "../assets/icons/close.svg";
 
 const body = document.querySelector("body");
 const main = document.querySelector("main") as HTMLElement;
@@ -30,7 +33,7 @@ export const openImage = (image: HTMLImageElement): void => {
 
   leftArrow.classList.add("about-selected");
   leftArrow.classList.add("arrow-left-bigger");
-  leftArrow.setAttribute("src", "/src/assets/icons/arrow-left-gallery.svg");
+  leftArrow.setAttribute("src", leftArrowPATH);
   leftArrow.setAttribute("tabindex", "0");
   divBigImage.append(leftArrow);
 
@@ -41,12 +44,12 @@ export const openImage = (image: HTMLImageElement): void => {
 
   rightArrow.classList.add("about-selected");
   rightArrow.classList.add("arrow-right-bigger");
-  rightArrow.setAttribute("src", "/src/assets/icons/arrow-right-gallery.svg");
+  rightArrow.setAttribute("src", rightArrowPATH);
   rightArrow.setAttribute("tabindex", "0");
   divBigImage.append(rightArrow);
 
   closeImage.classList.add("about-selected-close");
-  closeImage.setAttribute("src", "/src/assets/icons/close.svg");
+  closeImage.setAttribute("src", closePATH);
   closeImage.setAttribute("alt", "Icon of closing the bigger picture view.");
   closeImage.setAttribute("tabindex", "0");
   divBigImage.append(closeImage);
@@ -72,12 +75,10 @@ const close = (): void => {
   restartTimer();
 };
 
-background.addEventListener("click", (): void => {
-  close();
-});
-
-closeImage.addEventListener("click", (): void => {
-  close();
+[background, closeImage].forEach((element: HTMLElement) => {
+  element.addEventListener("click", (): void => {
+    close();
+  });
 });
 
 leftArrow.addEventListener("click", (): void => {
