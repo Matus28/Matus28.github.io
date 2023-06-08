@@ -543,6 +543,7 @@ img.about-selected-image-bigger {
 .project-progress:hover img {
   visibility: visible;
   opacity: 0.8;
+  z-index: 10;
 }
 
 .project-progress:hover svg,
