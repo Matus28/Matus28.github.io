@@ -8,6 +8,7 @@
   --main-color-2: hsl(346.5, 100%, 50.4%);
   --bg-color-card: hsl(0, 0%, 96%);
   --text-color: hsla(240, 100%, 6%, 0.473);
+  --black-transparent: hsla(0, 0%, 0%, 0.62);
 }
 
 /* ================== General =================== */
@@ -36,6 +37,10 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+main {
+  position: relative;
 }
 
 /* =================== Reusable =================== */
@@ -155,6 +160,10 @@ section {
   padding-top: 120px;
   padding-bottom: 120px;
   overflow: hidden;
+}
+
+footer {
+  padding: 20px 0;
 }
 
 /* =================== Navigation Bar =================== */
@@ -277,14 +286,14 @@ section.home .container {
   z-index: 4;
 }
 
-/* =================== About me =================== */
+/* =================== Section - About me =================== */
 
 .about .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .about-gallery {
@@ -308,6 +317,7 @@ section.home .container {
 
 .about-selected {
   position: relative;
+  cursor: pointer;
 }
 
 .about-selected img {
@@ -360,15 +370,15 @@ section.home .container {
   box-shadow: 0px 0px 6px 5px rgba(0, 0, 0, 0.75);
 }
 
-.arrow-up svg,
-.arrow-down svg {
+.arrow-left svg,
+.arrow-right svg {
   cursor: pointer;
   transition: all 0.5s;
   transform: rotate(-90deg);
 }
 
-.arrow-up:hover svg,
-.arrow-down:hover svg {
+.arrow-left:hover svg,
+.arrow-right:hover svg {
   transform: scale(1.3, 1.3) rotate(-90deg);
 }
 
@@ -380,7 +390,63 @@ section.home .container {
   border-radius: 2rem;
 }
 
-/* =================== Experience =================== */
+.about-selected-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--black-transparent);
+  z-index: 10000;
+}
+
+.about-selected-close {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 40px;
+  opacity: 0.7;
+  z-index: 10002;
+  background-color: var(--bg-color-card);
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.about-selected.arrow-left-bigger,
+.about-selected.arrow-right-bigger {
+  position: absolute;
+  z-index: 10004;
+  background-color: var(--bg-color-card);
+  border-radius: 3rem;
+  opacity: 0.7;
+}
+
+.about-selected.arrow-left-bigger {
+  left: -80px;
+}
+
+.about-selected.arrow-right-bigger {
+  right: -80px;
+}
+
+.about-selected-close:hover,
+.about-selected.arrow-left-bigger:hover,
+.about-selected.arrow-right-bigger:hover {
+  opacity: 1;
+}
+
+.about-selected-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 10001;
+}
+
+img.about-selected-image-bigger {
+  position: relative;
+  max-width: 1240px;
+}
+
+/* =================== Section - Experience =================== */
 
 .experience-list {
   display: grid;
@@ -390,15 +456,17 @@ section.home .container {
 }
 
 .experience-card {
-  border-radius: 2rem;
   width: 100%;
   margin: 0 auto;
+  padding: 2rem 3rem;
   text-align: center;
+  border: 4px solid white;
+  border-radius: 2rem;
 }
 
 .experience-card h2 {
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .experience-card ul {
@@ -429,7 +497,7 @@ section.home .container {
   transform: scale(1.5);
 }
 
-/* =================== Projects =================== */
+/* =================== Section - Projects =================== */
 
 .projects-box {
   position: relative;
@@ -444,7 +512,8 @@ section.home .container {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
+  margin-top: 3rem;
 }
 
 .project {
@@ -478,7 +547,8 @@ section.home .container {
 
 .project-progress:hover svg,
 .project-progress:hover .counter {
-  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .project-progress svg {
@@ -526,7 +596,7 @@ section.home .container {
   font-size: 1.3rem;
 }
 
-/* =================== Contact me =================== */
+/* =================== Section - Contact me =================== */
 
 .contact .container {
   display: grid;
@@ -535,15 +605,44 @@ section.home .container {
 }
 
 .mail {
-  color: var(--main-color-1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--main-color-2);
   font-weight: 400;
   font-size: 1.2rem;
+  transition: 0.5s;
+}
+
+.mail img {
+  width: 20px;
+}
+
+.mail:hover {
+  gap: 2rem;
+}
+
+.mail::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--main-color-2);
+  border-radius: 7px;
+  transition: 0.3s all ease;
+}
+
+.mail:hover::after {
+  width: 48%;
 }
 
 .contact-form {
   background-color: var(--bg-color-card);
   border-radius: 2rem;
-  padding: 2rem 3rem;
+  padding: 3rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -585,4 +684,21 @@ section.home .container {
 textarea.form-input {
   min-height: 200px;
   resize: none;
+}
+
+/* =================== Footer =================== */
+
+.footer-logos {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  transform: scale(1);
+}
+
+.footer-logos img:hover {
+  transform: scale(1.3);
+  transition: transform 0.5s ease;
+  filter: brightness(50%);
 }
