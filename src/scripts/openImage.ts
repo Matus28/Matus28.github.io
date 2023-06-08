@@ -39,7 +39,8 @@ export const openImage = (image: HTMLImageElement): void => {
 
   bigImage.classList.add("about-selected-image-bigger");
   bigImage.setAttribute("src", image.getAttribute("src") ?? "");
-  bigImage.style.width = "80vw";
+  bigImage.style.maxWidth = `${window.innerWidth * 0.8}px`;
+  bigImage.style.maxHeight = `${window.innerHeight * 0.8}px`;
   divBigImage.append(bigImage);
 
   rightArrow.classList.add("about-selected");
@@ -65,6 +66,8 @@ const updatePosition = (): void => {
   divBigImage.style.top = `${window.scrollY}px`;
   divBigImage.style.left = "0px";
   divBigImage.style.transform = `translate(${translateLeft}px, ${translateTop}px)`;
+  bigImage.style.maxWidth = `${window.innerWidth * 0.8}px`;
+  bigImage.style.maxHeight = `${window.innerHeight * 0.8}px`;
 };
 const close = (): void => {
   background.remove();
