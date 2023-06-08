@@ -3,7 +3,7 @@ import oneColorful from "../assets/AboutMe/01-colorful.png";
 import twoColorful from "../assets/AboutMe/02-colorful.png";
 import threeColorful from "../assets/AboutMe/03-colorful.png";
 
-const arrowDown = document.querySelector(".arrow-down") as HTMLDivElement;
+const arrowRight = document.querySelector(".arrow-right") as HTMLDivElement;
 const imgColorfulArr = [zeroColorful, oneColorful, twoColorful, threeColorful];
 const divsImage = document.querySelectorAll(
   ".about-image"
@@ -64,20 +64,34 @@ const selectComment = (ImgID: number): void => {
   paragraph.textContent = comments[ImgID];
 };
 
-export const selectImage = (divImage: HTMLDivElement = arrowDown): void => {
-  let newSelectedID: number = -1;
+export const restartTimer = (): void => {
   clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
   localStorage.setItem("interval", `${setInterval(selectImage, 5000)}`);
+};
 
-  if (divImage.classList.contains("arrow-down"))
+export const selectImage = (divImage: HTMLDivElement = arrowRight): void => {
+  let newSelectedID: number = -1;
+  clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
+
+  if (divImage.classList.contains("arrow-right"))
     newSelectedID = moveWithArrow("down");
-  else if (divImage.classList.contains("arrow-up"))
+  else if (divImage.classList.contains("arrow-left"))
     newSelectedID = moveWithArrow("up");
   else if (divImage.classList.contains("about-image"))
     newSelectedID = moveWithClick(divImage);
 
   divsImage[newSelectedID].classList.add("selected");
   selectedImg.src = imgColorfulArr[newSelectedID];
+
+  const biggerImage = document.querySelector(
+    ".about-selected-image-bigger"
+  ) as HTMLImageElement;
+
+  if (biggerImage) {
+    biggerImage.src = imgColorfulArr[newSelectedID];
+  } else {
+    restartTimer();
+  }
 
   selectComment(newSelectedID);
 };

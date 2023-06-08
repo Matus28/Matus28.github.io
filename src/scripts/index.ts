@@ -3,12 +3,16 @@ import { selectImage } from "./selectImage";
 import { setActiveLink } from "./setActiveLink";
 import { projectProgress } from "./projectProgress";
 import { sendEmail } from "./sendEmail";
+import { openImage } from "./openImage";
 
 const header = document.querySelector("header");
 
 const divListImg = document.querySelectorAll(
   ".gallery-control"
 ) as NodeListOf<HTMLDivElement>;
+const selectedImg = document.querySelector(
+  ".about-selected img"
+) as HTMLImageElement;
 
 const formButton = document.querySelector(
   ".contact-form button"
@@ -45,6 +49,13 @@ divListImg.forEach((divImg: HTMLDivElement): void => {
 window.addEventListener("DOMContentLoaded", (): void => {
   selectImage(divListImg[1]);
   setActiveLink();
+  if (!isRendered) {
+    isRendered = projectProgress();
+  }
+});
+
+selectedImg.addEventListener("click", (): void => {
+  openImage(selectedImg);
 });
 
 // ================== Set Active nav-menu-links ======================
@@ -63,7 +74,7 @@ window.addEventListener("scroll", (): void => {
   }
 });
 
-// ================== Project progress ======================
+// ================== Contact me ======================
 
 formButton.addEventListener("click", (event: MouseEvent): void => {
   event.preventDefault();
