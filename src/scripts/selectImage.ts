@@ -20,6 +20,8 @@ const comments = [
   "Bringing my CSS skills into the kitchen, I love to style my food creations with flair and creativity",
 ];
 
+let intervals: number[] = [];
+
 const findSelected = (): HTMLDivElement | null => {
   for (let i: number = 0; i < divsImage.length; i++) {
     if (divsImage[i].classList.contains("selected")) {
@@ -64,14 +66,24 @@ const selectComment = (ImgID: number): void => {
   paragraph.textContent = comments[ImgID];
 };
 
-export const restartTimer = (): void => {
-  clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
-  localStorage.setItem("interval", `${setInterval(selectImage, 5000)}`);
+export const clearAllIntervals = (): void => {
+  intervals.forEach((interval: number): void => {
+    clearInterval(interval);
+  });
+  intervals = [];
+};
+
+export const restartInterval = (): void => {
+  if (intervals.length > 0) clearAllIntervals();
+
+  const interval = setInterval(selectImage, 5000);
+  intervals.push(interval);
 };
 
 export const selectImage = (divImage: HTMLDivElement = arrowRight): void => {
   let newSelectedID: number = -1;
-  clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
+
+  clearAllIntervals();
 
   if (divImage.classList.contains("arrow-right"))
     newSelectedID = moveWithArrow("down");
@@ -90,7 +102,7 @@ export const selectImage = (divImage: HTMLDivElement = arrowRight): void => {
   if (biggerImage) {
     biggerImage.src = imgColorfulArr[newSelectedID];
   } else {
-    restartTimer();
+    restartInterval();
   }
 
   selectComment(newSelectedID);

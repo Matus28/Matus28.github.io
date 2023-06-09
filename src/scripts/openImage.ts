@@ -1,4 +1,4 @@
-import { restartTimer, selectImage } from "./selectImage";
+import { clearAllIntervals, restartInterval, selectImage } from "./selectImage";
 import leftArrowPATH from "../assets/icons/arrow-left-gallery.svg";
 import rightArrowPATH from "../assets/icons/arrow-right-gallery.svg";
 import closePATH from "../assets/icons/close.svg";
@@ -20,7 +20,7 @@ const leftArrow = document.createElement("img");
 const rightArrow = document.createElement("img");
 
 export const openImage = (image: HTMLImageElement): void => {
-  clearInterval(parseInt(localStorage.getItem("interval") ?? "0"));
+  clearAllIntervals();
 
   const pageHeight = body?.scrollHeight;
 
@@ -75,7 +75,7 @@ const close = (): void => {
   leftArrow.remove();
   rightArrow.remove();
   closeImage.remove();
-  restartTimer();
+  restartInterval();
 };
 
 [background, closeImage].forEach((element: HTMLElement) => {
