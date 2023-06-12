@@ -318,7 +318,8 @@ section.home .container {
 
 .developer-image {
   position: relative;
-  width: 100%;
+  display: block;
+  /* width: 100%; */
   height: 100%;
   z-index: 1001;
 }
@@ -326,8 +327,10 @@ section.home .container {
 .developer-image img {
   position: absolute;
   top: 0;
-  right: 0%;
+  right: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .developer-image .developer {
@@ -543,10 +546,6 @@ img.about-selected-image-bigger {
   transition: 1s;
 }
 
-.experience-card:hover {
-  border-color: var(--main-color-2);
-}
-
 .experience-card h2 {
   font-weight: 400;
   margin: 1rem;
@@ -583,23 +582,6 @@ img.about-selected-image-bigger {
 .experience-field {
   position: relative;
   max-width: auto;
-}
-
-.experience-field::after {
-  content: "";
-  position: absolute;
-  bottom: -0.2rem;
-  left: 0;
-  width: 0;
-  height: 0.4rem;
-  background-color: var(--main-color-2);
-  border-radius: 7px;
-  opacity: 0.5;
-  transition: 0.3s all ease;
-}
-
-.experience-card:hover h2::after {
-  width: 100%;
 }
 
 /* =================== Section - Projects =================== */
@@ -744,7 +726,7 @@ img.about-selected-image-bigger {
 }
 
 .mail:hover::after {
-  width: 48%;
+  width: 258px;
 }
 
 .contact-form {
@@ -947,7 +929,7 @@ textarea.form-input {
     padding: 0.5rem 0.7rem;
   }
 
-  /* ============= Section - Experience ============== */
+  /* ============= Section - Projects ============== */
 
   .project-box-stats {
     gap: 1rem;
@@ -976,7 +958,7 @@ textarea.form-input {
   }
 
   .mail:hover::after {
-    width: 78%;
+    width: 260px;
   }
 
   .contact-form {
@@ -999,6 +981,7 @@ textarea.form-input {
 /* ===================================================== */
 
 @media (max-width: 768px) {
+  /* ============= Navigation Bar ============== */
   header,
   header.scroll {
     background-color: var(--bg-color-card);
@@ -1050,14 +1033,18 @@ textarea.form-input {
     visibility: visible;
   }
 
+  /* =================== Section - HOME =================== */
+
   section.home {
-    height: 900px;
+    min-height: 1050px;
   }
 
   section.home .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 430px auto;
+    grid-template-rows: 420px 0.5fr;
   }
+
+  /* =================== Section - About me =================== */
 
   .developer-info {
     grid-row: 2 / span 1;
@@ -1073,10 +1060,16 @@ textarea.form-input {
     max-width: 350px;
   }
 
+  /* =================== Section - Contact me =================== */
+
   section.contact .container {
     grid-template-columns: auto;
     grid-template-rows: 300px auto;
     margin-bottom: 0;
+  }
+
+  .mail:hover::after {
+    width: 258px;
   }
 }
 
