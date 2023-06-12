@@ -75,6 +75,7 @@ const close = (): void => {
   leftArrow.remove();
   rightArrow.remove();
   closeImage.remove();
+  divBigImage.remove();
   restartInterval();
 };
 

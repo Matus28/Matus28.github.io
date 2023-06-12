@@ -6,6 +6,10 @@ import { sendEmail } from "./sendEmail";
 import { openImage } from "./openImage";
 
 const header = document.querySelector("header");
+const divHamburger = document.querySelector(
+  ".menu-hamburger"
+) as HTMLDivElement;
+const divMenuLinks = document.querySelector(".menu-links") as HTMLDivElement;
 
 const divListImg = document.querySelectorAll(
   ".gallery-control"
@@ -27,6 +31,40 @@ const stickNavBar = (): void => {
 stickNavBar();
 
 window.addEventListener("scroll", stickNavBar);
+
+// ================== HAMBURGER Navigation Bar ======================
+const darkBackground = document.createElement("div");
+
+const body = document.querySelector("body");
+const main = document.querySelector("main") as HTMLElement;
+
+const closeMenu = (): void => {
+  divHamburger.classList.remove("opened");
+  divMenuLinks.classList.remove("opened");
+  darkBackground.remove();
+};
+
+darkBackground.classList.add("menu-background");
+
+divHamburger.addEventListener("click", (): void => {
+  darkBackground.style.height = `${body?.scrollHeight}px`;
+  divHamburger.classList.toggle("opened");
+  divMenuLinks.classList.toggle("opened");
+
+  if (divHamburger.classList.contains("opened")) {
+    main.append(darkBackground);
+  } else {
+    darkBackground.remove();
+  }
+});
+
+darkBackground.addEventListener("click", (): void => {
+  closeMenu();
+});
+
+window.addEventListener("scroll", (): void => {
+  console.log(body?.scrollHeight);
+});
 
 // ================== ScrollReveal animation ======================
 
