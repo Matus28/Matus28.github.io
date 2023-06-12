@@ -309,7 +309,7 @@ section.home {
 
 section.home .container {
   display: grid;
-  grid-template-columns: 1fr 500px;
+  grid-template-columns: 1fr 450px;
   align-items: center;
   max-height: 550px;
   height: calc(100vh - 100px);
@@ -382,7 +382,7 @@ section.home .container {
   cursor: pointer;
 }
 
-.about-selected img {
+.about-selected .selected-img {
   border: 2px solid var(--bg-color-card);
   background-color: var(--bg-color-card);
   border-radius: 1rem;
@@ -391,30 +391,50 @@ section.home .container {
 
 .about-selected-comment {
   position: absolute;
-  bottom: 0.25rem;
   left: 0;
+  bottom: 4px;
   width: 100%;
   height: 0;
-  margin: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-color: transparent;
   background-color: var(--bg-color-card);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  overflow: hidden;
-  opacity: 0.8;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.26s ease;
+  opacity: 0.9;
+  transition: 0.34s;
 }
 
-.about-selected-comment p {
+.about-selected-comment-card {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.about-selected .information {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  background-color: var(--bg-color-card);
+  border-radius: 2rem;
+  width: 38px;
+  margin-right: 0.5rem;
+}
+
+.about-selected-comment-card p {
   padding: 1rem;
+  width: 100%;
   color: var(--main-color-1);
   text-align: center;
+  margin: 0;
 }
 
-.about-selected:hover .about-selected-comment {
-  height: 150px;
-  transform: scaleY(1);
+.about-selected:hover .about-selected-comment,
+.about-selected .about-selected-comment.active {
+  height: 30%;
 }
 
 .about-image {
@@ -422,7 +442,7 @@ section.home .container {
 }
 
 .about-image img,
-.about-selected img {
+.about-selected .selected-img {
   width: 100%;
   border-radius: 1rem;
 }
@@ -575,7 +595,8 @@ img.about-selected-image-bigger {
   transition: 0.5s;
 }
 
-.experience-card li:hover {
+.experience-card li:hover,
+.experience-card li:focus {
   transform: scale(1.3);
 }
 
