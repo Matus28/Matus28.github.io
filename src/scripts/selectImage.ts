@@ -10,8 +10,11 @@ const divsImage = document.querySelectorAll(
 ) as NodeListOf<HTMLDivElement>;
 const selectedImg = document.querySelector(".selected-img") as HTMLImageElement;
 const paragraph = document.querySelector(
-  ".about-selected-comment p"
+  ".about-selected-comment-card p"
 ) as HTMLParagraphElement;
+const divSelectedComment = document.querySelector(
+  ".about-selected-comment"
+) as HTMLDivElement;
 
 const comments = [
   "Capturing the essence of my adventurous spirit in one frame",
@@ -106,4 +109,12 @@ export const selectImage = (divImage: HTMLDivElement = arrowRight): void => {
   }
 
   selectComment(newSelectedID);
+};
+
+export const toggleComment = (informationLine: HTMLImageElement): void => {
+  divSelectedComment.classList.toggle("active");
+
+  if (divSelectedComment.classList.contains("active")) {
+    informationLine.style.bottom = "150px";
+  }
 };
