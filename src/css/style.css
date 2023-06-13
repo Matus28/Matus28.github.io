@@ -904,13 +904,11 @@ textarea.form-input {
   }
 
   .about-selected.arrow-left-bigger {
-    bottom: -70px;
-    left: 35%;
+    left: -12%;
   }
 
   .about-selected.arrow-right-bigger {
-    bottom: -70px;
-    right: 35%;
+    right: -12%;
   }
 
   .about-image-list .arrow-left svg,
@@ -1097,6 +1095,20 @@ textarea.form-input {
 
   .about-selected .about-selected-comment.active {
     height: 55%;
+  }
+
+  .about-selected.arrow-left-bigger,
+  .about-selected.arrow-right-bigger,
+  .about-selected-close {
+    transform: scale(0.7);
+  }
+
+  .about-selected.arrow-left-bigger {
+    left: 0%;
+  }
+
+  .about-selected.arrow-right-bigger {
+    right: 0%;
   }
 
   /* =================== Section - Contact me =================== */
