@@ -919,7 +919,10 @@ textarea.form-input {
     height: 40px;
   }
 
-  .about-selected:hover .about-selected-comment,
+  .about-selected:hover .about-selected-comment {
+    height: 0;
+  }
+
   .about-selected .about-selected-comment.active {
     height: 20%;
   }
@@ -1088,7 +1091,10 @@ textarea.form-input {
     max-width: 350px;
   }
 
-  .about-selected:hover .about-selected-comment,
+  .about-selected:hover .about-selected-comment {
+    height: 0;
+  }
+
   .about-selected .about-selected-comment.active {
     height: 55%;
   }
