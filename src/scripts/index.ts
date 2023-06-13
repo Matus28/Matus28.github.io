@@ -21,9 +21,6 @@ const informationLine = document.querySelector(
   ".about-selected-comment .information"
 ) as HTMLImageElement;
 
-const divExperienceList = document.querySelectorAll(
-  ".experience-card"
-) as NodeListOf<HTMLDivElement>;
 const experienceArrowList = document.querySelectorAll(
   ".experience-field-arrow"
 ) as NodeListOf<HTMLImageElement>;
