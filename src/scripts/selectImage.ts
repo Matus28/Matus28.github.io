@@ -2,6 +2,8 @@ import zeroColorful from "../assets/AboutMe/00-colorful.png";
 import oneColorful from "../assets/AboutMe/01-colorful.png";
 import twoColorful from "../assets/AboutMe/02-colorful.png";
 import threeColorful from "../assets/AboutMe/03-colorful.png";
+import infoIcon from "../assets/icons/information.svg";
+import infoCrossedIcon from "../assets/icons/information-crossed.svg";
 
 const arrowRight = document.querySelector(".arrow-right") as HTMLDivElement;
 const imgColorfulArr = [zeroColorful, oneColorful, twoColorful, threeColorful];
@@ -115,6 +117,8 @@ export const toggleComment = (informationLine: HTMLImageElement): void => {
   divSelectedComment.classList.toggle("active");
 
   if (divSelectedComment.classList.contains("active")) {
-    informationLine.style.bottom = "150px";
+    informationLine.setAttribute("src", infoCrossedIcon);
+  } else {
+    informationLine.setAttribute("src", infoIcon);
   }
 };

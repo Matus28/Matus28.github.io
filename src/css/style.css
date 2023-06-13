@@ -408,6 +408,7 @@ section.home .container {
 }
 
 .about-selected-comment-card {
+  position: relative;
   width: 100%;
   height: 100%;
   opacity: 0.8;
@@ -425,6 +426,10 @@ section.home .container {
 }
 
 .about-selected-comment-card p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 1rem;
   width: 100%;
   color: var(--main-color-1);
@@ -434,7 +439,7 @@ section.home .container {
 
 .about-selected:hover .about-selected-comment,
 .about-selected .about-selected-comment.active {
-  height: 30%;
+  height: 40%;
 }
 
 .about-image {
@@ -649,7 +654,8 @@ img.about-selected-image-bigger {
   transition: opacity 0.5s ease-in-out;
 }
 
-.project-progress:hover img {
+.project-progress:hover img,
+.project-progress:active img {
   visibility: visible;
   opacity: 0.8;
   z-index: 10;
@@ -913,8 +919,9 @@ textarea.form-input {
     height: 40px;
   }
 
-  .about-selected:hover .about-selected-comment {
-    height: 110px;
+  .about-selected:hover .about-selected-comment,
+  .about-selected .about-selected-comment.active {
+    height: 20%;
   }
 
   .about-logos {
@@ -1079,6 +1086,11 @@ textarea.form-input {
     left: 50%;
     transform: translate(-50%, 0);
     max-width: 350px;
+  }
+
+  .about-selected:hover .about-selected-comment,
+  .about-selected .about-selected-comment.active {
+    height: 55%;
   }
 
   /* =================== Section - Contact me =================== */
