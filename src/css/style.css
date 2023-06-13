@@ -379,7 +379,6 @@ section.home .container {
 
 .about-selected {
   position: relative;
-  cursor: pointer;
 }
 
 .about-selected .selected-img {
@@ -387,6 +386,7 @@ section.home .container {
   background-color: var(--bg-color-card);
   border-radius: 1rem;
   box-shadow: 0px 0px 6px 5px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 
 .about-selected-comment {
