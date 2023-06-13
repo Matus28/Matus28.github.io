@@ -21,6 +21,13 @@ const informationLine = document.querySelector(
   ".about-selected-comment .information"
 ) as HTMLImageElement;
 
+const divExperienceList = document.querySelectorAll(
+  ".experience-card"
+) as NodeListOf<HTMLDivElement>;
+const experienceArrowList = document.querySelectorAll(
+  ".experience-field-arrow"
+) as NodeListOf<HTMLImageElement>;
+
 const formButton = document.querySelector(
   ".contact-form button"
 ) as HTMLButtonElement;
@@ -81,10 +88,21 @@ informationLine.addEventListener("click", (event: MouseEvent): void => {
   event.stopPropagation();
   toggleComment(informationLine);
 });
+
 // ================== Set Active nav-menu-links ======================
 
 window.addEventListener("scroll", (): void => {
   setActiveLink();
+});
+
+// ================== Toggle Experience Field elements ======================
+
+experienceArrowList.forEach((experienceArrow: HTMLImageElement): void => {
+  experienceArrow.addEventListener("click", (event: MouseEvent): void => {
+    const arrowImg = event.target as HTMLImageElement;
+    const divExperience = arrowImg.parentElement?.parentElement;
+    if (divExperience) divExperience.classList.toggle("closed");
+  });
 });
 
 // ================== Project progress ======================
