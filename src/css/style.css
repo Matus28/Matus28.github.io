@@ -306,6 +306,7 @@ section.home {
   width: 100%;
   padding: 120px 0;
   height: 100vh;
+  min-height: 900px;
   overflow: hidden;
 }
 
@@ -754,6 +755,7 @@ img.about-selected-image-bigger {
 
 section.contact {
   height: 100vh;
+  min-height: 900px;
 }
 
 .contact .container {
@@ -1040,6 +1042,10 @@ footer {
 
   /* ============= Section - Contact me ============== */
 
+  section.contact {
+    min-height: 700px;
+  }
+
   .contact .container {
     gap: 2rem;
   }
@@ -1199,6 +1205,10 @@ footer {
 
   section.home {
     padding-top: calc(50px + 70px);
+  }
+
+  section.contact {
+    min-height: 1000px;
   }
 
   header {
