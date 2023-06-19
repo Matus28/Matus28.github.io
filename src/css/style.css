@@ -7,6 +7,7 @@
   --bg-color-2: hsl(222, 6%, 56%);
   --main-color-1: hsl(240, 100%, 6%);
   --main-color-2: hsl(346.5, 100%, 50.4%);
+  --main-color-3: hsl(222, 11%, 82%);
   --bg-color-card: hsl(0, 0%, 96%);
   --text-color: hsla(240, 100%, 6%, 0.473);
   --black-transparent: hsla(0, 0%, 0%, 0.62);
@@ -108,8 +109,8 @@ p {
 
 .secondary-button {
   position: absolute;
-  top: 15%;
-  left: 4.3%;
+  top: 16%;
+  left: 4%;
   background-color: var(--bg-color);
   color: var(--main-color-1);
   border-radius: 1.5rem;
@@ -303,24 +304,28 @@ nav.container {
 section.home {
   position: relative;
   width: 100%;
-  padding: 150px 0;
+  padding: 120px 0;
+  height: 100vh;
   overflow: hidden;
 }
 
 section.home .container {
   display: grid;
-  grid-template-columns: 1fr 450px;
+  grid-template-columns: 1fr 500px;
   align-items: center;
-  max-height: 550px;
-  height: calc(100vh - 100px);
-  margin-bottom: 120px;
+  gap: 1rem;
+  height: 100%;
+}
+
+.developer-info {
+  min-height: 300px;
 }
 
 .developer-image {
   position: relative;
   display: block;
-  /* width: 100%; */
   height: 100%;
+  max-height: 600px;
   z-index: 1001;
 }
 
@@ -426,6 +431,10 @@ section.home .container {
   cursor: pointer;
 }
 
+.about-selected .information:hover {
+  transform: scale(1.3, 1.3);
+}
+
 .about-selected-comment-card p {
   position: absolute;
   top: 50%;
@@ -476,6 +485,7 @@ section.home .container {
   background-color: var(--bg-color-card);
   padding: 2rem 3rem;
   border-radius: 2rem;
+  box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.63);
 }
 
 .about-selected-background {
@@ -564,13 +574,14 @@ img.about-selected-image-bigger {
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem 3rem;
+  padding: 1rem 0rem;
   text-align: center;
   border: 8px solid white;
   border-radius: 2rem;
   transition: 1s;
+  overflow: hidden;
 }
 
 .experience-card h2 {
@@ -584,9 +595,10 @@ img.about-selected-image-bigger {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+  padding: 1rem 2rem;
   transition: 0.5s;
+  overflow: hidden;
 }
 
 .experience-card li {
@@ -597,7 +609,7 @@ img.about-selected-image-bigger {
   gap: 0.5rem;
   min-width: 190px;
   min-height: 2rem;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0rem;
   border: 4px solid #fff;
   border-radius: 2rem;
   background-color: var(--main-color-1);
@@ -618,8 +630,8 @@ img.about-selected-image-bigger {
 
 .experience-card .experience-field-arrow {
   position: absolute;
-  bottom: 0px;
-  right: -30px;
+  bottom: 9%;
+  right: 10px;
   width: 50px;
   transform: rotate(-90deg);
   transition: 0.35s;
@@ -630,7 +642,7 @@ img.about-selected-image-bigger {
 }
 
 .experience-card.closed {
-  height: 8.5rem;
+  height: 6.5rem;
 }
 
 /* =================== Section - Projects =================== */
@@ -641,6 +653,7 @@ img.about-selected-image-bigger {
   background-color: var(--bg-color-card);
   padding: 2rem 3rem;
   border-radius: 2rem;
+  box-shadow: 0px 1px 16px 1px rgba(0, 0, 0, 0.63);
 }
 
 .project-box-stats {
@@ -739,6 +752,10 @@ img.about-selected-image-bigger {
 
 /* =================== Section - Contact me =================== */
 
+section.contact {
+  height: 100vh;
+}
+
 .contact .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -829,6 +846,12 @@ textarea.form-input {
 
 /* =================== Footer =================== */
 
+footer {
+  padding: 60px;
+  background-color: var(--main-color-1);
+  border-top: 1rem solid var(--bg-color-card);
+}
+
 .footer-logos {
   display: flex;
   flex-flow: row wrap;
@@ -893,7 +916,15 @@ textarea.form-input {
 
   /* ============= Section - HOME ============== */
 
+  section.home {
+    position: relative;
+    justify-content: center;
+  }
+
   section.home .container {
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
     grid-template-columns: 1fr 350px;
     max-height: 440px;
     margin-bottom: 0;
@@ -1010,7 +1041,6 @@ textarea.form-input {
   /* ============= Section - Contact me ============== */
 
   .contact .container {
-    margin-bottom: 150px;
     gap: 2rem;
   }
 
@@ -1042,7 +1072,7 @@ textarea.form-input {
   header,
   header.scroll {
     background-color: var(--bg-color-card);
-    height: 80px;
+    height: 60px;
   }
 
   nav.container {
@@ -1060,14 +1090,10 @@ textarea.form-input {
     flex-direction: column;
     position: absolute;
     right: -300px;
-    top: 80px;
+    top: 60px;
     height: 100vh;
     background-color: var(--bg-color);
     transition: 0.5s;
-  }
-
-  header.scroll .menu-links {
-    top: 80px;
   }
 
   .menu-links.opened {
@@ -1093,12 +1119,15 @@ textarea.form-input {
   /* =================== Section - HOME =================== */
 
   section.home {
-    min-height: 1050px;
+    padding-top: 60px;
+    max-height: 1500px;
   }
 
   section.home .container {
+    top: 10%;
+    transform: translate(0, 0);
     grid-template-columns: 1fr;
-    grid-template-rows: 420px 0.5fr;
+    grid-template-rows: 420px 1fr;
   }
 
   /* =================== Section - About me =================== */
@@ -1158,6 +1187,24 @@ textarea.form-input {
 /* ===================================================== */
 
 @media (max-width: 480px) {
+  section.home .container {
+    max-height: 1000px;
+  }
+
+  section,
+  section.home,
+  section.experience {
+    padding: 50px 0;
+  }
+
+  section.home {
+    padding-top: calc(50px + 70px);
+  }
+
+  header {
+    height: 70px;
+  }
+
   .about-gallery {
     padding: 0rem 1.5rem;
   }

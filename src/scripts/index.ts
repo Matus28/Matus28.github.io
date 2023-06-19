@@ -55,11 +55,11 @@ divMenuLinks.addEventListener("click", (): void => {
 
 const sr = ScrollReveal({
   duration: 3000,
-  distance: "80px",
+  distance: "100px",
 });
 
 sr.reveal(".developer-info", { origin: "bottom", delay: 500 });
-sr.reveal(".developer-image", { origin: "top", delay: 500 });
+sr.reveal(".developer-image", { origin: "right", delay: 500 });
 
 // ================== About Gallery select ======================
 
