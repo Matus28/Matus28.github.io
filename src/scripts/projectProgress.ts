@@ -1,3 +1,6 @@
+const project = document.querySelectorAll(
+  ".project-box-stats .project"
+) as NodeListOf<HTMLDivElement>;
 const progressValue = document.querySelectorAll(
   ".counter span"
 ) as NodeListOf<HTMLSpanElement>;
@@ -22,15 +25,21 @@ const elementReached = (element: HTMLElement | null) => {
   }
 };
 
-const updateValue = (counter: HTMLSpanElement, targetValue: number): void => {
+const updateValue = (
+  counter: HTMLSpanElement,
+  targetValue: number,
+  index: number
+): void => {
   const currentValue = parseInt(counter.innerText);
 
   if (currentValue < targetValue) {
     counter.innerText = `${currentValue + 1}`;
 
     setTimeout((): void => {
-      updateValue(counter, targetValue);
+      updateValue(counter, targetValue, index);
     }, 10);
+  } else if (currentValue === 100) {
+    project[index].classList.add("finished");
   }
 };
 
@@ -44,7 +53,7 @@ export const projectProgress = (): boolean => {
 
     progressCircle[index].style.setProperty("--target", `${strokeValue}`);
 
-    updateValue(counter, targetValue);
+    updateValue(counter, targetValue, index);
   });
 
   progressCircle.forEach(
