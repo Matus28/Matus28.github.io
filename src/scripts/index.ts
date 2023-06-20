@@ -5,6 +5,7 @@ import { projectProgress } from "./projectProgress";
 import { sendEmail } from "./sendEmail";
 import { openImage } from "./openImage";
 import { closeMenu, toggleBurgerMenu } from "./toggleBurgerMenu";
+import { insertLineBreake } from "./insertLineBreake";
 
 const header = document.querySelector("header");
 const divHamburger = document.querySelector(
@@ -32,7 +33,7 @@ const formButton = document.querySelector(
 // ================== Stick Navigation Bar ======================
 
 const stickNavBar = (): void => {
-  header?.classList.toggle("scroll", window.pageYOffset > 0);
+  header?.classList.toggle("scroll", window.scrollY > 0);
 };
 
 stickNavBar();
@@ -110,6 +111,10 @@ window.addEventListener("scroll", (): void => {
   if (!isRendered) {
     isRendered = projectProgress();
   }
+});
+
+window.addEventListener("DOMContentLoaded", (): void => {
+  insertLineBreake();
 });
 
 // ================== Contact me ======================
