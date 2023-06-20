@@ -9,6 +9,7 @@
   --main-color-2: hsl(346.5, 100%, 50.4%);
   --main-color-3: hsl(222, 11%, 82%);
   --bg-color-card: hsl(0, 0%, 96%);
+  --border-color: hsl(0, 0%, 100%);
   --text-color: hsla(240, 100%, 6%, 0.473);
   --black-transparent: hsla(0, 0%, 0%, 0.62);
 }
@@ -82,7 +83,6 @@ p {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5rem;
 }
 
 .button {
@@ -101,6 +101,7 @@ p {
   text-transform: capitalize;
   transition: 0.3s;
   cursor: pointer;
+  margin-right: 1.5rem;
 }
 
 .button:hover {
@@ -115,6 +116,7 @@ p {
   color: var(--main-color-1);
   border-radius: 1.5rem;
   box-shadow: 1px -1px 5px -1px rgba(0, 0, 0, 0.75) inset;
+  margin: 0;
 }
 
 .secondary-button:hover {
@@ -599,7 +601,7 @@ img.about-selected-image-bigger {
   width: 100%;
   padding: 1rem 2rem;
   transition: 0.5s;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .experience-card li {
@@ -659,56 +661,60 @@ img.about-selected-image-bigger {
 
 .project-box-stats {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 4rem;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
   margin-top: 3rem;
 }
 
+.project-linebreak {
+  width: 50%;
+  margin: 2.5rem 0;
+  opacity: 0.5;
+}
+
 .project {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 120px;
-  max-width: 120px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 300px 1rem auto 1fr;
+  grid-template-rows: repeat(2, minmax(min-content, max-content)) 1fr;
+  min-height: 185px;
+  width: 100%;
 }
 
 .project-progress {
   position: relative;
-  width: 180px;
-  height: 180px;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+  column-gap: 1rem;
+  min-width: 300px;
+  min-height: 180px;
 }
 
 .project-progress img {
   visibility: hidden;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
-  border-radius: 1rem;
+  border: 6px solid white;
+  box-shadow: 1px -1px 5px -1px rgba(0, 0, 0, 0.75);
   opacity: 0;
+  transform: translate(-50%, -50%);
   transition: opacity 0.5s ease-in-out;
 }
 
 .project-progress:hover img,
-.project-progress:active img {
+.project-progress:active img,
+.project.finished .project-progress img {
   visibility: visible;
-  opacity: 0.8;
+  opacity: 1;
   z-index: 10;
-}
-
-.project-progress:hover svg,
-.project-progress:hover .counter {
-  opacity: 0;
-  cursor: pointer;
 }
 
 .project-progress svg {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 180px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
@@ -745,16 +751,67 @@ img.about-selected-image-bigger {
 }
 
 .project-title {
-  margin-top: 1rem;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
   color: var(--main-color-1);
-  font-size: 1.3rem;
-  text-align: center;
+  font-size: 1.7rem;
+  margin-right: 1rem;
+}
+
+.project p {
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 1;
+}
+
+.project-technologies {
+  grid-column: 4 / span 1;
+  grid-row: 1 / span 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-technologies li {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--border-color);
+  background-color: var(--main-color-2);
+  border-radius: 2rem;
+  height: 36px;
+  padding: 0.5rem 0.8rem;
+}
+
+.project-links {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2em;
+}
+
+.project-links a {
+  position: relative;
+  font-size: 1rem;
+  color: var(--main-color-1);
+}
+
+.project-links span {
+  margin-right: 0.3rem;
 }
 
 /* =================== Section - Contact me =================== */
 
 section.contact {
-  height: 100vh;
+  height: 90vh;
   min-height: 900px;
 }
 
@@ -1023,21 +1080,34 @@ footer {
 
   .project-box-stats {
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .project {
-    transform: scale(0.8);
-    max-width: 180px;
+    grid-template-rows: repeat(2, minmax(min-content, max-content)) 3rem;
   }
 
   .project-progress {
-    width: 150px;
-    height: 150px;
+    grid-row: 1 / span 2;
   }
 
-  .project-progress svg circle {
-    transform: translate(-15px, -15px);
+  .project-title {
+    grid-column: 3 / span 2;
+  }
+
+  .project-technologies {
+    grid-column: 3 / span 2;
+    grid-row: 3 / span 1;
+  }
+
+  .project p {
+    grid-row: 2 / span 1;
+  }
+
+  .project-links {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    justify-content: center;
   }
 
   /* ============= Section - Contact me ============== */
@@ -1174,6 +1244,40 @@ footer {
     right: 0%;
   }
 
+  /* ============= Section - Projects ============== */
+
+  .project {
+    grid-template-columns: 1fr;
+    grid-template-rows: 350px repeat(2, minmax(min-content, max-content)) 3rem 3rem;
+    gap: 1rem;
+  }
+
+  .project-progress {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .project-title {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  .project p {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+  }
+
+  .project-technologies {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+    justify-content: center;
+  }
+
+  .project-links {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+  }
+
   /* =================== Section - Contact me =================== */
 
   section.contact .container {
@@ -1227,6 +1331,15 @@ footer {
     padding-right: 0rem;
   }
 
+  section.experience .container {
+    padding-left: 1.5rem;
+  }
+
+  .experience-card .experience-field-arrow {
+    position: absolute;
+    right: -15px;
+  }
+
   .about-text,
   .projects-box,
   .contact-info,
@@ -1237,5 +1350,9 @@ footer {
 
   .contact-form {
     border-radius: 0;
+  }
+
+  .project {
+    grid-template-rows: 250px repeat(2, minmax(min-content, max-content)) 3rem 3rem;
   }
 }
