@@ -1285,6 +1285,10 @@ footer {
 
   /* =================== Section - Contact me =================== */
 
+  section.contact {
+    min-height: 1100px;
+  }
+
   section.contact .container {
     grid-template-columns: auto;
     grid-template-rows: 300px auto;
@@ -1319,10 +1323,6 @@ footer {
 
   section.home .container {
     top: 460px;
-  }
-
-  section.contact {
-    min-height: 1000px;
   }
 
   header {
