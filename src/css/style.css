@@ -577,7 +577,7 @@ img.about-selected-image-bigger {
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
+  height: max-content;
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0rem;
@@ -1323,10 +1323,6 @@ footer {
 
   section.home .container {
     top: 460px;
-  }
-
-  header {
-    height: 70px;
   }
 
   .about-gallery {
