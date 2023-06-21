@@ -5,7 +5,7 @@ import { projectProgress } from "./projectProgress";
 import { sendEmail } from "./sendEmail";
 import { openImage } from "./openImage";
 import { closeMenu, toggleBurgerMenu } from "./toggleBurgerMenu";
-import { insertLineBreake } from "./insertLineBreake";
+import { insertLineBreak } from "./insertLineBreake";
 
 const header = document.querySelector("header");
 const divHamburger = document.querySelector(
@@ -56,11 +56,17 @@ divMenuLinks.addEventListener("click", (): void => {
 
 const sr = ScrollReveal({
   duration: 3000,
-  distance: "100px",
+  distance: "80px",
 });
 
-sr.reveal(".developer-info", { origin: "bottom", delay: 500 });
+sr.reveal(".developer-info", { origin: "left", delay: 500 });
 sr.reveal(".developer-image", { origin: "right", delay: 500 });
+sr.reveal(".about-text", { origin: "right", delay: 500 });
+sr.reveal("#experience-card-first", { origin: "bottom", delay: 500 });
+sr.reveal("#experience-card-second", { origin: "top", delay: 500 });
+sr.reveal("#experience-card-third", { origin: "bottom", delay: 500 });
+sr.reveal(".contact-info", { origin: "left", delay: 500 });
+sr.reveal(".contact-form", { origin: "right", delay: 500 });
 
 // ================== About Gallery select ======================
 
@@ -114,7 +120,7 @@ window.addEventListener("scroll", (): void => {
 });
 
 window.addEventListener("DOMContentLoaded", (): void => {
-  insertLineBreake();
+  insertLineBreak();
 });
 
 // ================== Contact me ======================
