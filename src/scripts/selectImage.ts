@@ -81,7 +81,7 @@ export const clearAllIntervals = (): void => {
 export const restartInterval = (): void => {
   if (intervals.length > 0) clearAllIntervals();
 
-  const interval = setInterval(selectImage, 5000);
+  const interval = setInterval(selectImage, 9000);
   intervals.push(interval);
 };
 
