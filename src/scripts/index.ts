@@ -55,12 +55,13 @@ divMenuLinks.addEventListener("click", (): void => {
 // ================== ScrollReveal animation ======================
 
 const sr = ScrollReveal({
-  duration: 3000,
+  duration: 1000,
   distance: "80px",
+  viewFactor: 0,
 });
 
-sr.reveal(".developer-info", { origin: "left", delay: 500 });
-sr.reveal(".developer-image", { origin: "right", delay: 500 });
+sr.reveal(".developer-info", { origin: "left", delay: 10 });
+sr.reveal(".developer-image", { origin: "right", delay: 10 });
 sr.reveal(".about-text", { origin: "right", delay: 500 });
 sr.reveal("#experience-card-first", { origin: "bottom", delay: 500 });
 sr.reveal("#experience-card-second", { origin: "top", delay: 500 });
